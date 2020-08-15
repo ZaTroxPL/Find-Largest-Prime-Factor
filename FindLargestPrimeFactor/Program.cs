@@ -12,6 +12,12 @@ namespace FindLargestPrimeFactor
             string numberAsString = Console.ReadLine();
             long number = long.Parse(numberAsString);
 
+            if (IsPrime(number))
+            {
+                Console.WriteLine($"The number you entered ({number}) is prime!");
+                return;
+            }
+
             long i = 1;
 
             while (i <= number/2)
