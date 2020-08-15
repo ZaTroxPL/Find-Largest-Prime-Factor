@@ -12,9 +12,9 @@ namespace FindLargestPrimeFactor
             string numberAsString = Console.ReadLine();
             long number = long.Parse(numberAsString);
 
-            long i = 3;
+            long i = 1;
 
-            while (i < number/2)
+            while (i <= number/2)
             {
                 var isReminder = false;
 
@@ -35,7 +35,7 @@ namespace FindLargestPrimeFactor
                         }                        
                     }
 
-                    i += 2;
+                    i++;                    
                 }
             }
 
@@ -45,11 +45,11 @@ namespace FindLargestPrimeFactor
         {
             long i = 1;
 
-            while (i < number / 2)
+            while (i <= number / 2)
             {
                 var isReminder = false;
 
-                while (!isReminder && i < number / 2)
+                while (!isReminder && i <= number / 2)
                 {
                     long reminder = number % i;
                     if (reminder == 0)
@@ -60,7 +60,15 @@ namespace FindLargestPrimeFactor
                         }
                     }
 
-                    i += 2;
+
+                    if (i <= 2)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        i += 2;
+                    }                    
                 }
             }
 
