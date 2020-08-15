@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace FindLargestPrimeFactor
 {
@@ -6,7 +8,64 @@ namespace FindLargestPrimeFactor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Insert number:");
+            string numberAsString = Console.ReadLine();
+            long number = long.Parse(numberAsString);
+
+            long i = 3;
+
+            while (i < number/2)
+            {
+                var isReminder = false;
+
+                while (!isReminder)
+                {
+                    long reminder = number % i;
+                    if (reminder == 0)
+                    {
+                        var isPrime = IsPrime(number / i);
+                        if (isPrime)
+                        {
+                            Console.WriteLine(number / i);
+                            return;
+                        }
+                        else
+                        {
+                            isReminder = true;
+                        }                        
+                    }
+
+                    i += 2;
+                }
+            }
+
+        }
+
+        public static bool IsPrime(long number)
+        {
+            long i = 1;
+
+            while (i < number / 2)
+            {
+                var isReminder = false;
+
+                while (!isReminder && i < number / 2)
+                {
+                    long reminder = number % i;
+                    if (reminder == 0)
+                    {
+                        if (i != number && i != 1)
+                        {
+                            return false;
+                        }
+                    }
+
+                    i += 2;
+                }
+            }
+
+            return true;
+            
         }
     }
 }
